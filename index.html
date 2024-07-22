@@ -12,6 +12,7 @@
     <div id="app">
         <div class="container-main bg-lgrey mt-4">
             <header>
+                <!-- utente e contatto della chat -->
                 <div class="row-header">
                     <div class=" col-4 bg-grey border-end border-secondary-subtle p-2">
                         <div class="d-flex align-items-center">
@@ -24,12 +25,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-8 bg-grey p-2">
-                        <div class="d-flex align-items-center">
-                            <img class="user-img" src="./img/avatar_1.jpg" alt="profile picture">
+                    <div class="col-8 bg-grey p-2" v-if="activeContact">
+                        <div class="d-flex align-items-center" v-for="contact in activeContact ? [activeContact] : contacts" :key="contact.id" >
+                            <img class="user-img" :src="contact.avatar" alt="profile picture">
                             <div class="ms-2">
-                                <div>Michele</div>
-                                <div class="grey">Ultimo accesso oggi alle 12:00</div>
+                                <div> {{ contact.name }}</div>
+                                <div class="grey">Ultimo accesso oggi alle  {{contact.lastActive}}</div>
                             </div>
                             <div class="ms-auto me-3">
                                 <i class="fa-solid fa-magnifying-glass fa-lg ms-3" style="color: #B1B1B1;"></i>
@@ -40,6 +41,7 @@
                     </div>
                 </div>
             </header>
+            <!-- contatti e chat -->
             <div class="row-main">
                 <div class="sidebar">
                     <div class="bg-sky p-3 d-flex">
@@ -59,11 +61,11 @@
                     </div>
                     <!-- lista contatti -->
                     <div class="contact">
-                        <div class="user d-flex" v-for="contact in contacts">
+                        <div class="user d-flex" v-for="contact in contacts" :class="{ 'active-user': contact === activeContact }" @click="setActiveContact(contact)">
                             <img class="user-img" :src="contact.avatar" alt="profile picture">
                             <div class="ms-2 mt-2">
                                 <div class="name">{{ contact.name }}</div>
-                                <div class="lgrey fs-13">Ultimo accesso oggi alle {{ contact.lastActive }}</div>
+                                <div class="lgrey fs-13">ultimo messaggio inviato {{ contact.lastActive }}</div>
                             </div>
                             <div class="ms-auto mt-1 me-2">
                                 <span class="lgrey fs-13">{{ contact.lastActive }}</span>
@@ -71,21 +73,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="chat position-relative">
-                    <div class="position-absolute top-0 end-0 mt-5 me-5">
-                        <div class="message-green mb-2">
-                            <div>Hai portato a spasso il cane?</div>
-                            <div class="m-time">15:30</div>
-                        </div>
-                        <div class="message-green">
-                            <div>ricordati di stendere i panni</div>
-                            <div class="m-time">15:50</div>
+                <!-- chat e messaggi -->
+                <div class="chat">
+                    <div class="position-absolute top-0 end-0 mt-5 me-5"  v-if="activeContact">
+                        <div class="message-green mb-2" v-for="message in activeContact.messages">
+                            <div>{{message.message}}</div>
+                            <div class="m-time">{{message.date}}</div>
                         </div>
                     </div>
-                    <div class="position-abs mt-5 ms-5">
-                        <div class="message-white mb-2">
-                            <div>Hai portato a spasso il cane?</div>
-                            <div class="m-time">16:15</div>
+                    <div class="position-abs mt-5 ms-5" v-if="activeContact">
+                        <div class="message-white mb-2" v-for="message in activeContact.messages">
+                            <div>{{message.message}}</div>
+                            <div class="m-time">{{message.date}}</div>
                         </div>
                     </div>
                     <div class="position-absolute bottom-0 start-50 translate-middle-x w-100">
