@@ -3,11 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+    <title>Boolzapp</title>
 </head>
 <body>
+    <div id="app">
+        <div class="container-main bg-lgrey mt-4">
+            <header>
+                <div class="row-header">
+                    <div class=" col-4 bg-grey border-end border-secondary-subtle p-2">
+                        <div class="d-flex align-items-center">
+                            <img class="user-img" src="./img/avatar_io.jpg" alt="profile picture">
+                            <div class="ms-2">Francesco</div>
+                            <div class="ms-auto">
+                                <i class="fas fa-circle-notch fa-lg ms-3" style="color: #B1B1B1;"></i>
+                                <i class="fas fa-message ms-3 fa-lg" style="color: #B1B1B1;"></i>
+                                <i class="fa-solid fa-ellipsis-vertical fa-lg ms-3" style="color: #B1B1B1;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8 bg-grey p-2">
+                        <div class="d-flex align-items-center">
+                            <img class="user-img" src="./img/avatar_1.jpg" alt="profile picture">
+                            <div class="ms-2">
+                                <div>Michele</div>
+                                <div class="grey">Ultimo accesso oggi alle 12:00</div>
+                            </div>
+                            <div class="ms-auto">
+                                <i class="fa-solid fa-magnifying-glass fa-lg ms-3" style="color: #B1B1B1;"></i>
+                                <i class="fa-solid fa-paperclip ms-3 fa-lg" style="color: #B1B1B1;"></i>
+                                <i class="fa-solid fa-ellipsis-vertical fa-lg ms-3" style="color: #B1B1B1;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="row-main">
+                <div class="sidebar">
+                    <div class="bg-sky p-3 d-flex">
+                        <div class="circle">
+                            <i class="fa-solid fa-bell-slash fa-lg" style="color: #8EDAFD;"></i>
+                        </div>
+                        <div class="ms-3">
+                            <div class="fw-bold">Ricevi notifiche di nuovi messaggi</div>
+                            <div><a class="grey" href="">attiva notifiche desktop</a></div>
+                        </div>
+                    </div>
+                    <div class="bg-lgrey p-2">
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass fa-lg" style="color: #B1B1B1;"></i></span>
+                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
+                        </div>
+                    </div>
+                    <div class="contact p-2">
+                        <div class="user d-flex">
+                            <img class="user-img" src="./img/avatar_1.jpg" alt="profile picture">
+                            <div class="ms-2">
+                                <div class="name">Michele</div>
+                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
+                            </div>
+                            <div class="ms-auto">
+                                <span class="lgrey fs-13">12:00</span>
+                            </div>
+                        </div>
+                        <div class="user d-flex mt-3">
+                            <img class="user-img" src="./img/avatar_2.jpg" alt="profile picture">
+                            <div class="ms-2">
+                                <div class="name">Fabio</div>
+                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
+                            </div>
+                            <div class="ms-auto">
+                                <span class="lgrey fs-13">12:00</span>
+                            </div>
+                        </div>
+                        <div class="user d-flex mt-3">
+                            <img class="user-img" src="./img/avatar_3.jpg" alt="profile picture">
+                            <div class="ms-2">
+                                <div class="name">Samuele</div>
+                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
+                            </div>
+                            <div class="ms-auto">
+                                <span class="lgrey fs-13">12:00</span>
+                            </div>
+                        </div>
+                        <div class="user d-flex mt-3">
+                            <img class="user-img" src="./img/avatar_4.jpg" alt="profile picture">
+                            <div class="ms-2">
+                                <div class="name">Alessandro B.</div>
+                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
+                            </div>
+                            <div class="ms-auto">
+                                <span class="lgrey fs-13">12:00</span>
+                            </div>
+                        </div>
+                        <div class="user d-flex mt-3">
+                            <img class="user-img" src="./img/avatar_5.jpg" alt="profile picture">
+                            <div class="ms-2">
+                                <div class="name">Alessandro L.</div>
+                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
+                            </div>
+                            <div class="ms-auto">
+                                <span class="lgrey fs-13">12:00</span>
+                            </div>
+                        </div>
+                        <div class="user d-flex mt-3">
+                            <img class="user-img" src="./img/avatar_6.jpg" alt="profile picture">
+                            <div class="ms-2">
+                                <div class="name">Claudia</div>
+                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
+                            </div>
+                            <div class="ms-auto">
+                                <span class="lgrey fs-13">12:00</span>
+                            </div>
+                        </div>
+                        <div class="user d-flex mt-3">
+                            <img class="user-img" src="./img/avatar_7.jpg" alt="profile picture">
+                            <div class="ms-2">
+                                <div class="name">Federico</div>
+                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
+                            </div>
+                            <div class="ms-auto">
+                                <span class="lgrey fs-13">12:00</span>
+                            </div>
+                        </div>
+                        <div class="user d-flex mt-3">
+                            <img class="user-img" src="./img/avatar_8.jpg" alt="profile picture">
+                            <div class="ms-2">
+                                <div class="name">Davide</div>
+                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
+                            </div>
+                            <div class="ms-auto">
+                                <span class="lgrey fs-13">12:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat position-relative">
+                    <div class="position-absolute top-0 end-0 mt-5 me-5">
+                        <div class="message bg-message-green mb-2">
+                            <div>Hai portato a spasso il cane?</div>
+                            <div class="m-time">15:30</div>
+                        </div>
+                        <div class="message bg-message-green">
+                            <div>ricordati di stendere i panni</div>
+                            <div class="m-time">15:50</div>
+                        </div>
+                    </div>
+                    <div class="position-abs mt-5 ms-5">
+                        <div class="message mb-2">
+                            <div>Hai portato a spasso il cane?</div>
+                            <div class="m-time">16:15</div>
+                        </div>
+                    </div>
+                    <div class="position-absolute bottom-0 start-50 translate-middle-x w-100">
+                        <div class="p-2 bg-cream d-flex align-items-center justify-content-between">
+                            <i class="fa-regular fa-face-smile fa-xl mx-4" style="color: #848484;"></i>
+                            <input type="text" class="form" placeholder="Scrivi un messaggio">
+                            <i class="fa-solid fa-microphone fa-xl mx-4" style="color: #848484;"></i>
+                        </div>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </div>
     
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
 </body>
 </html>
