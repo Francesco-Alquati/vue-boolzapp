@@ -46,36 +46,40 @@ body{
     border: none;
     border-radius: 5px;
 }
+.margin-10{
+    margin-left: 370px;
+}
 
-.message-white{
+.chat-bubble-white{
     height: 45px;
     padding: 10px;
     border: none;
     border-radius: 8px;
     background-color: white;
     font-size: 14px;
-    min-width: 18rem;
+    max-width: 45%;
 }
-.message-green{
+.chat-bubble-green{
     height: 45px;
     padding: 10px;
     border: none;
     border-radius: 8px;
     background-color:#D5F9BA ;
     font-size: 14px;
-    min-width: 18rem;
+    max-width: 45%;
 }
+
 .chat{
     height: 656px;
     width: calc(1200px - (100% / 3));
     background-image: url('../img/mine.jpg');
     display: flex;
-    overflow-y: visible;
+    flex-direction: column;
+    overflow-y: scroll;
     position: relative;
-
 }
 .contact{
-    overflow-y: auto;
+    overflow-y: scroll;
     height: 500px;
 }
 .user-img{
@@ -131,5 +135,3 @@ i{
     background-color: rgb(225, 225, 225);
     cursor: pointer;
 }
-
-
