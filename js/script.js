@@ -4,6 +4,7 @@ createApp({
     data(){
         return{
             activeContact: null,
+            messageInput: '',
             contacts: [
                 {   
                     id: 1,
@@ -189,14 +190,21 @@ createApp({
         setActiveContact(contact) {
             this.activeContact = contact;
         },
-        selectContact(contact) {
-            this.activeContact.selectedContact = {
-              id: contact.id,
-              name: contact.name,
-              avatar: contact.avatar,
-              lastActive: contact.lastActive,
-            };
+        sendMessage() {
+            if (this.activeContact) {
+              const newMessage = {
+                message: this.messageInput,
+                status: 'sent',
+                date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+              };
+              this.activeContact.messages.push(newMessage);
+              console.log("New message:", newMessage);
+              this.messageInput = ''; 
+            } else {
+              console.error("nessun contatto selezionato");
+            }
         }
+          
     },
 }).mount('#app')
 
