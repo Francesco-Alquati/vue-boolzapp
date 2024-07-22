@@ -200,6 +200,13 @@ createApp({
               this.activeContact.messages.push(newMessage);
               console.log("New message:", newMessage);
               this.messageInput = ''; 
+              setTimeout(() => {
+                this.activeContact.messages.push({
+                  message: "ok",
+                  status: "received",
+                  date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+                });
+              }, 1000);
             } else {
               console.error("nessun contatto selezionato");
             }
