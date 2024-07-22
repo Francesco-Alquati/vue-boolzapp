@@ -76,15 +76,19 @@
                 <!-- chat e messaggi -->
                 <div class="chat">
                     <div class="position-absolute top-0 end-0 mt-5 me-5"  v-if="activeContact">
-                        <div class="message-green mb-2" v-for="message in activeContact.messages">
-                            <div>{{message.message}}</div>
-                            <div class="m-time">{{message.date}}</div>
+                        <div v-for="message in activeContact.messages">
+                            <div v-if="message.status === 'sent'" class="message-green mb-2" >
+                                <div>{{message.message}}</div>
+                                <div class="m-time">{{message.date}}</div>
+                            </div>
                         </div>
                     </div>
                     <div class="position-abs mt-5 ms-5" v-if="activeContact">
-                        <div class="message-white mb-2" v-for="message in activeContact.messages">
-                            <div>{{message.message}}</div>
-                            <div class="m-time">{{message.date}}</div>
+                        <div v-for="message in activeContact.messages">
+                            <div v-if="message.status === 'received'" class="message-white mb-2">
+                                <div>{{message.message}}</div>
+                                <div class="m-time">{{message.date}}</div>
+                            </div>
                         </div>
                     </div>
                     <div class="position-absolute bottom-0 start-50 translate-middle-x w-100">
