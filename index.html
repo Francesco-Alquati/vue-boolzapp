@@ -17,7 +17,7 @@
                         <div class="d-flex align-items-center">
                             <img class="user-img" src="./img/avatar_io.jpg" alt="profile picture">
                             <div class="ms-2">Francesco</div>
-                            <div class="ms-auto">
+                            <div class="ms-auto me-3">
                                 <i class="fas fa-circle-notch fa-lg ms-3" style="color: #B1B1B1;"></i>
                                 <i class="fas fa-message ms-3 fa-lg" style="color: #B1B1B1;"></i>
                                 <i class="fa-solid fa-ellipsis-vertical fa-lg ms-3" style="color: #B1B1B1;"></i>
@@ -31,7 +31,7 @@
                                 <div>Michele</div>
                                 <div class="grey">Ultimo accesso oggi alle 12:00</div>
                             </div>
-                            <div class="ms-auto">
+                            <div class="ms-auto me-3">
                                 <i class="fa-solid fa-magnifying-glass fa-lg ms-3" style="color: #B1B1B1;"></i>
                                 <i class="fa-solid fa-paperclip ms-3 fa-lg" style="color: #B1B1B1;"></i>
                                 <i class="fa-solid fa-ellipsis-vertical fa-lg ms-3" style="color: #B1B1B1;"></i>
@@ -57,102 +57,33 @@
                             <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </div>
-                    <div class="contact p-2">
-                        <div class="user d-flex">
-                            <img class="user-img" src="./img/avatar_1.jpg" alt="profile picture">
-                            <div class="ms-2">
-                                <div class="name">Michele</div>
-                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
+                    <!-- lista contatti -->
+                    <div class="contact">
+                        <div class="user d-flex" v-for="contact in contacts">
+                            <img class="user-img" :src="contact.avatar" alt="profile picture">
+                            <div class="ms-2 mt-2">
+                                <div class="name">{{ contact.name }}</div>
+                                <div class="lgrey fs-13">Ultimo accesso oggi alle {{ contact.lastActive }}</div>
                             </div>
-                            <div class="ms-auto">
-                                <span class="lgrey fs-13">12:00</span>
-                            </div>
-                        </div>
-                        <div class="user d-flex mt-3">
-                            <img class="user-img" src="./img/avatar_2.jpg" alt="profile picture">
-                            <div class="ms-2">
-                                <div class="name">Fabio</div>
-                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
-                            </div>
-                            <div class="ms-auto">
-                                <span class="lgrey fs-13">12:00</span>
-                            </div>
-                        </div>
-                        <div class="user d-flex mt-3">
-                            <img class="user-img" src="./img/avatar_3.jpg" alt="profile picture">
-                            <div class="ms-2">
-                                <div class="name">Samuele</div>
-                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
-                            </div>
-                            <div class="ms-auto">
-                                <span class="lgrey fs-13">12:00</span>
-                            </div>
-                        </div>
-                        <div class="user d-flex mt-3">
-                            <img class="user-img" src="./img/avatar_4.jpg" alt="profile picture">
-                            <div class="ms-2">
-                                <div class="name">Alessandro B.</div>
-                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
-                            </div>
-                            <div class="ms-auto">
-                                <span class="lgrey fs-13">12:00</span>
-                            </div>
-                        </div>
-                        <div class="user d-flex mt-3">
-                            <img class="user-img" src="./img/avatar_5.jpg" alt="profile picture">
-                            <div class="ms-2">
-                                <div class="name">Alessandro L.</div>
-                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
-                            </div>
-                            <div class="ms-auto">
-                                <span class="lgrey fs-13">12:00</span>
-                            </div>
-                        </div>
-                        <div class="user d-flex mt-3">
-                            <img class="user-img" src="./img/avatar_6.jpg" alt="profile picture">
-                            <div class="ms-2">
-                                <div class="name">Claudia</div>
-                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
-                            </div>
-                            <div class="ms-auto">
-                                <span class="lgrey fs-13">12:00</span>
-                            </div>
-                        </div>
-                        <div class="user d-flex mt-3">
-                            <img class="user-img" src="./img/avatar_7.jpg" alt="profile picture">
-                            <div class="ms-2">
-                                <div class="name">Federico</div>
-                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
-                            </div>
-                            <div class="ms-auto">
-                                <span class="lgrey fs-13">12:00</span>
-                            </div>
-                        </div>
-                        <div class="user d-flex mt-3">
-                            <img class="user-img" src="./img/avatar_8.jpg" alt="profile picture">
-                            <div class="ms-2">
-                                <div class="name">Davide</div>
-                                <div class="lgrey fs-13">Ultimo accesso oggi alle 12:00</div>
-                            </div>
-                            <div class="ms-auto">
-                                <span class="lgrey fs-13">12:00</span>
+                            <div class="ms-auto mt-1 me-2">
+                                <span class="lgrey fs-13">{{ contact.lastActive }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="chat position-relative">
                     <div class="position-absolute top-0 end-0 mt-5 me-5">
-                        <div class="message bg-message-green mb-2">
+                        <div class="message-green mb-2">
                             <div>Hai portato a spasso il cane?</div>
                             <div class="m-time">15:30</div>
                         </div>
-                        <div class="message bg-message-green">
+                        <div class="message-green">
                             <div>ricordati di stendere i panni</div>
                             <div class="m-time">15:50</div>
                         </div>
                     </div>
                     <div class="position-abs mt-5 ms-5">
-                        <div class="message mb-2">
+                        <div class="message-white mb-2">
                             <div>Hai portato a spasso il cane?</div>
                             <div class="m-time">16:15</div>
                         </div>
