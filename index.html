@@ -30,7 +30,7 @@
                             <img class="user-img" :src="contact.avatar" alt="profile picture">
                             <div class="ms-2">
                                 <div> {{ contact.name }}</div>
-                                <div class="grey">Ultimo accesso oggi alle  {{contact.lastActive}}</div>
+                                <div class="grey">Ultimo accesso oggi alle  {{ contact.lastActive }}</div>
                             </div>
                             <div class="ms-auto me-3">
                                 <i class="fa-solid fa-magnifying-glass fa-lg ms-3" style="color: #B1B1B1;"></i>
@@ -56,12 +56,12 @@
                     <div class="bg-lgrey p-2">
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass fa-lg" style="color: #B1B1B1;"></i></span>
-                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" class="form-control" v-model="searchTerm" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </div>
                     <!-- lista contatti -->
                     <div class="contact">
-                        <div class="user d-flex" v-for="contact in contacts" :class="{ 'active-user': contact === activeContact }" @click="setActiveContact(contact)">
+                        <div class="user d-flex" v-for="contact in filteredContacts"  v-for="contact in contacts" :class="{ 'active-user': contact === activeContact }" @click="setActiveContact(contact)">
                             <img class="user-img" :src="contact.avatar" alt="profile picture">
                             <div class="ms-2 mt-2">
                                 <div class="name">{{ contact.name }}</div>

@@ -5,6 +5,7 @@ createApp({
         return{
             activeContact: null,
             messageInput: '',
+            searchTerm:'',
             contacts: [
                 {   
                     id: 1,
@@ -195,7 +196,7 @@ createApp({
               const newMessage = {
                 message: this.messageInput,
                 status: 'sent',
-                date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+                date: new Date().toLocaleTimeString(),
               };
               this.activeContact.messages.push(newMessage);
               console.log("New message:", newMessage);
@@ -204,21 +205,22 @@ createApp({
                 this.activeContact.messages.push({
                   message: "ok",
                   status: "received",
-                  date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
+                  date: new Date().toLocaleTimeString(),
                 });
               }, 1000);
             } else {
               console.error("nessun contatto selezionato");
             }
-        },
-        filterContacts() {
-            const searchTerm = this.searchInput.toLowerCase();
-            this.filteredContacts = this.contacts.filter(contact => {
-              const contactName = contact.name.toLowerCase(); 
-              return contactName.includes(searchTerm);
-            });
-        }
-          
+        },    
     },
+    // filtro l'array contacts originale in base al valore della proprietà searchTerm.
+    // Restituisco un nuovo array contenente solo i contatti i cui nomi (in minuscolo) includono la versione minuscola del termine di ricerca
+    computed: {
+        filteredContacts() {
+          return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+        }
+    },
+
+  
 }).mount('#app')
 
