@@ -60,12 +60,17 @@
                         </div>
                     </div>
                     <!-- lista contatti -->
-                    <div class="contact">
-                        <div class="user d-flex" v-for="contact in filteredContacts"  v-for="contact in contacts" :class="{ 'active-user': contact === activeContact }" @click="setActiveContact(contact)">
+                    <div class="contact" >
+                        <div class="user d-flex"  v-for="contact in filteredContacts" v-for="contact in contacts" :class="{ 'active-user': contact === activeContact }" @click="setActiveContact(contact)">
                             <img class="user-img" :src="contact.avatar" alt="profile picture">
                             <div class="ms-2 mt-2">
                                 <div class="name">{{ contact.name }}</div>
-                                <div class="lgrey fs-13">ultimo messaggio inviato {{ contact.lastActive }}</div>
+                                <div class="lgrey fs-13">
+                                    <span v-if="contact.lastMessage && contact.lastMessage.message">
+                                        {{ contact.lastMessage.message.slice(0, 20) }}...
+                                    </span>
+                                    <span v-else></span>
+                                </div>
                             </div>
                             <div class="ms-auto mt-1 me-2">
                                 <span class="lgrey fs-13">{{ contact.lastActive }}</span>

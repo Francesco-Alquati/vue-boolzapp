@@ -30,6 +30,7 @@ createApp({
                             status: 'received'
                         }
                     ],
+                    lastMessage: null
                 }, 
                 { 
                     id: 2, 
@@ -54,6 +55,7 @@ createApp({
                             status: 'sent'
                         }
                     ], 
+                    lastMessage: null
                 },
                 { 
                     id: 3, 
@@ -78,6 +80,7 @@ createApp({
                             status: 'received'
                         }
                     ], 
+                    lastMessage: null
                 },
                 { 
                     id: 4, 
@@ -97,6 +100,7 @@ createApp({
                             status: 'received'
                         }
                     ], 
+                    lastMessage: null
                 },
                 { 
                     id: 5, 
@@ -116,6 +120,7 @@ createApp({
                             status: 'received'
                         }
                     ], 
+                    lastMessage: null
                 },
                 { 
                     id: 6, 
@@ -140,6 +145,7 @@ createApp({
                             status: 'sent'
                         }
                     ], 
+                    lastMessage: null
                 },
                 { 
                     id: 7, 
@@ -159,6 +165,7 @@ createApp({
                             status: 'received'
                         }
                     ], 
+                    lastMessage: null
                 },
                 { 
                     id: 8, 
@@ -183,6 +190,7 @@ createApp({
                             status: 'received'
                         }
                     ], 
+                    lastMessage: null
                 },
             ],
         };
@@ -217,10 +225,12 @@ createApp({
     // Restituisco un nuovo array contenente solo i contatti i cui nomi (in minuscolo) includono la versione minuscola del termine di ricerca
     computed: {
         filteredContacts() {
-          return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+            return this.contacts.filter(contact => {
+                contact.lastMessage = contact.messages.length > 0 ? contact.messages[contact.messages.length - 1] : null;
+                return contact.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+            });
         }
-    },
+    }
 
-  
 }).mount('#app')
 
