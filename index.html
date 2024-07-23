@@ -75,8 +75,8 @@
                 </div>
                 <!-- chat e messaggi -->
                 <div class="chat">
-                    <div class="mt-5 ms-5" v-if="activeContact">
-                        <div v-for="message in activeContact.messages.sort((a, b) => new Date(a.date) - new Date(b.date))" :class="{ 'chat-bubble-green margin-l-370 mt-2': message.status === 'sent', 'chat-bubble-white mt-2': message.status === 'received' }">
+                    <div class="mt-4 ms-5" v-if="activeContact">
+                        <div v-for="message in activeContact.messages.sort((a, b) => new Date(a.date) - new Date(b.date))" :class="{ 'chat-bubble-green margin-l-370 mt-2 mb-2': message.status === 'sent', 'chat-bubble-white mt-2 mb-2': message.status === 'received' }">
                             <div>{{ message.message }}</div>
                             <div class="m-time">{{ message.date }}</div>
                         </div>

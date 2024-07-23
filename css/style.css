@@ -70,7 +70,7 @@ body{
     max-width: 45%;
 }
 .chat{
-    height: 656px;
+    height: 598px;
     width: calc(1200px - (100% / 3));
     background-image: url('../img/mine.jpg');
     display: flex;
