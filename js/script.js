@@ -191,7 +191,7 @@ createApp({
             this.activeContact = contact;
         },
         sendMessage() {
-            if (this.activeContact) {
+            if (this.activeContact && this.messageInput.trim()) {
               const newMessage = {
                 message: this.messageInput,
                 status: 'sent',
@@ -210,6 +210,13 @@ createApp({
             } else {
               console.error("nessun contatto selezionato");
             }
+        },
+        filterContacts() {
+            const searchTerm = this.searchInput.toLowerCase();
+            this.filteredContacts = this.contacts.filter(contact => {
+              const contactName = contact.name.toLowerCase(); 
+              return contactName.includes(searchTerm);
+            });
         }
           
     },
