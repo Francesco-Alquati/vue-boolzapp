@@ -204,7 +204,7 @@ createApp({
               const newMessage = {
                 message: this.messageInput,
                 status: 'sent',
-                date: new Date().toLocaleTimeString(),
+                date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
               };
               this.activeContact.messages.push(newMessage);
               console.log("New message:", newMessage);
@@ -213,7 +213,7 @@ createApp({
                 this.activeContact.messages.push({
                   message: "ok",
                   status: "received",
-                  date: new Date().toLocaleTimeString(),
+                  date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
                 });
               }, 1000);
             } else {
